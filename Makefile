@@ -1,9 +1,9 @@
-all : otelcol
+all : state1
 .PHONY : all
 
-otelcol :
-	GO111MODULE=on CGO_ENABLED=0 go build -o ./bin/otelcontribcol $(BUILD_INFO) ./cmd/otelcontribcol
+state1 :
+	cd stage1 && bazel build //main:hello-world
 
 .PHONY : clean
 clean :
-	-rm -r ./bin
+	-rm -r stage1/bazel-*
